@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Join the Winter Guide list | Northhaven</title>
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Join the Northhaven list for a free what-to-wear-by-temperature guide and 10% off your first order.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- skip link (for accessibility) -->
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- navbar -->
+    <header class="site-header">
+      <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+      <nav aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="guide.html">Winter Guide</a>
+        <a href="about.html">About</a>
+        <a class="btn small" href="join.html" aria-current="page">Join the list</a>
+      </nav>
+    </header>
+
+    <main id="main">
+
+      <!-- photo on the left, form on the right -->
+      <section class="join-wrap">
+        <div class="join-image">
+          <img src="img/p09.jpg" alt="A cup of coffee on a windowsill with snow falling outside" width="900" height="1200">
+        </div>
+        <div class="join-card">
+          <span class="join-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg></span>
+          <h1>Get the Winter Guide and 10% off</h1>
+          <ul class="checks">
+            <li>A one-page guide to dressing by temperature</li>
+            <li>10% off your first order</li>
+            <li>About two emails a month, and you can unsubscribe at any time</li>
+          </ul>
+          <!-- signup form -->
+          <form id="joinForm" novalidate>
+            <label for="emailInput">Email address</label>
+            <input id="emailInput" name="email" type="email" autocomplete="email" required aria-describedby="emailError">
+            <label class="checkbox-row"><input id="consentBox" type="checkbox" required><span>Yes, send me the guide and Northhaven emails.</span></label>
+            <p id="emailError" class="error-msg" role="alert"></p>
+            <button class="btn wide" type="submit">Send me the guide</button>
+            <p class="note">We never sell your email. You can unsubscribe at any time. <a href="join.html#privacy">How we use your information</a></p>
+          </form>
+          <!-- shows after submit -->
+          <div id="doneBox" class="done" hidden tabindex="-1">
+            <h2>You are on the list</h2>
+            <p>Your discount code is <strong>WINTER10</strong>.</p>
+            <p id="doneMessage" class="note"></p>
+            <a class="btn" href="collection.html">Browse the collection</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- privacy -->
+      <section id="privacy">
+        <h2>How we use your information</h2>
+        <ul class="checks">
+          <li>We ask only for your email address. Nothing else.</li>
+          <li>We use it to send the guide and occasional emails. We never sell or share it.</li>
+          <li>Every email has an unsubscribe link.</li>
+          <li>Sign-ups are visible only to the site owner.</li>
+          <li>Analytics cookies run only if you accept the cookie notice.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="footer-cols">
+        <div>
+          <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+          <p>Warm for the whole walk. Winter clothing rated by temperature.</p>
+        </div>
+        <nav aria-label="Shop">
+          <h2 class="footer-heading">Shop</h2>
+          <ul>
+            <li>
+              <a href="collection.html">Collection</a>
+            </li>
+            <li>
+              <a href="guide.html">Winter Guide</a>
+            </li>
+          </ul>
+        </nav>
+        <nav aria-label="Company">
+          <h2 class="footer-heading">Company</h2>
+          <ul>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+            <li>
+              <a href="guide.html#faq">Returns and sizing</a>
+            </li>
+            <li>
+              <a href="join.html#privacy">Privacy</a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer-heading">Stay in touch</h2>
+          <p>Get the Winter Guide and 10% off.</p>
+          <a class="btn small" href="join.html">Join the list</a>
+          <p class="footer-mail"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg> hello@northhaven.example</p>
+        </div>
+      </div>
+      <p class="fine-print">&copy; 2026 Northhaven. A fictional brand made for a university course. Photos from Unsplash. This prototype does not process orders or emails.</p>
+    </footer>
+
+    <!-- js -->
+    <script src="script.js"></script>
+  </body>
+</html>

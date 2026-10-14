@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Winter clothing for the cold commute | Northhaven</title>
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Northhaven makes winter jackets, base layers and accessories rated by temperature. Join the list for a first-order discount and a free Winter Guide.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- skip link (for accessibility) -->
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- navbar -->
+    <header class="site-header">
+      <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+      <nav aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="guide.html">Winter Guide</a>
+        <a href="about.html">About</a>
+        <a class="btn small" href="join.html">Join the list</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <!-- snow goes here (script.js) -->
+      <canvas id="snow" aria-hidden="true"></canvas>
+      <div class="hero-text">
+        <!-- the 3D logo, i stacked 40 copies of the logo so it looks thick. script.js spins it -->
+        <div class="logo3d" id="logo3d" aria-hidden="true">
+          <div class="stack">
+            <i style="transform:translateZ(-10.00px)"></i>
+            <i class="dark" style="transform:translateZ(-9.49px)"></i>
+            <i class="dark" style="transform:translateZ(-8.97px)"></i>
+            <i class="dark" style="transform:translateZ(-8.46px)"></i>
+            <i class="dark" style="transform:translateZ(-7.95px)"></i>
+            <i class="dark" style="transform:translateZ(-7.44px)"></i>
+            <i class="dark" style="transform:translateZ(-6.92px)"></i>
+            <i class="dark" style="transform:translateZ(-6.41px)"></i>
+            <i class="dark" style="transform:translateZ(-5.90px)"></i>
+            <i class="dark" style="transform:translateZ(-5.38px)"></i>
+            <i class="dark" style="transform:translateZ(-4.87px)"></i>
+            <i class="dark" style="transform:translateZ(-4.36px)"></i>
+            <i class="dark" style="transform:translateZ(-3.85px)"></i>
+            <i class="dark" style="transform:translateZ(-3.33px)"></i>
+            <i class="dark" style="transform:translateZ(-2.82px)"></i>
+            <i class="dark" style="transform:translateZ(-2.31px)"></i>
+            <i class="dark" style="transform:translateZ(-1.79px)"></i>
+            <i class="dark" style="transform:translateZ(-1.28px)"></i>
+            <i class="dark" style="transform:translateZ(-0.77px)"></i>
+            <i class="dark" style="transform:translateZ(-0.26px)"></i>
+            <i class="dark" style="transform:translateZ(0.26px)"></i>
+            <i class="dark" style="transform:translateZ(0.77px)"></i>
+            <i class="dark" style="transform:translateZ(1.28px)"></i>
+            <i class="dark" style="transform:translateZ(1.79px)"></i>
+            <i class="dark" style="transform:translateZ(2.31px)"></i>
+            <i class="dark" style="transform:translateZ(2.82px)"></i>
+            <i class="dark" style="transform:translateZ(3.33px)"></i>
+            <i class="dark" style="transform:translateZ(3.85px)"></i>
+            <i class="dark" style="transform:translateZ(4.36px)"></i>
+            <i class="dark" style="transform:translateZ(4.87px)"></i>
+            <i class="dark" style="transform:translateZ(5.38px)"></i>
+            <i class="dark" style="transform:translateZ(5.90px)"></i>
+            <i class="dark" style="transform:translateZ(6.41px)"></i>
+            <i class="dark" style="transform:translateZ(6.92px)"></i>
+            <i class="dark" style="transform:translateZ(7.44px)"></i>
+            <i class="dark" style="transform:translateZ(7.95px)"></i>
+            <i class="dark" style="transform:translateZ(8.46px)"></i>
+            <i class="dark" style="transform:translateZ(8.97px)"></i>
+            <i class="dark" style="transform:translateZ(9.49px)"></i>
+            <i style="transform:translateZ(10.00px)"></i>
+          </div>
+        </div>
+        <h1><span class="wordmark">Northhaven</span><span class="tagline">Warm for the whole walk.</span></h1>
+        <p>Winter jackets and layers for people who commute on foot and by transit. Every piece lists the temperature it is made for.</p>
+        <a class="btn" href="join.html">Get the free Winter Guide</a>
+      </div>
+    </section>
+
+    <main id="main">
+
+      <!-- slider thing, changes the text + the clothes list -->
+      <section class="picker" aria-labelledby="pickerTitle">
+        <h2 id="pickerTitle">What are you walking out into?</h2>
+        <p>Slide to your morning temperature and see what to wear.</p>
+        <div class="dial">
+          <output id="tempValue" class="big-temp" for="tempSlider">-8 &deg;C</output>
+          <span id="tempLabel" class="temp-label">Cold</span>
+        </div>
+        <label for="tempSlider" class="sr-only">Morning temperature in degrees Celsius</label>
+        <input id="tempSlider" type="range" min="-30" max="5" value="-8" step="1">
+        <div class="scale">
+          <span>-30 &deg;C</span>
+          <span>5 &deg;C</span>
+        </div>
+        <p id="tempNote" class="temp-note" aria-live="polite"></p>
+        <!-- clothes list -->
+        <ul class="tiles">
+          <li data-on="0123">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4-6 4 2 5 3-1v8h8v-8l3 1 2-5-6-4a3 3 0 0 1-6 0z"/></svg>
+            <a href="collection.html">Merino Crew Sweater</a>
+          </li>
+          <li data-on="12">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3 4 6v14h5v-8m6-9 4 3v14h-5v-8M8 3h8M12 3v18"/></svg>
+            <a href="collection.html">Commuter Down Coat</a>
+          </li>
+          <li data-on="3">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3 4 6v14h5v-8m6-9 4 3v14h-5v-8M8 3h8M12 3v18"/></svg>
+            <a href="collection.html">Alpine Puffer</a>
+          </li>
+          <li data-on="23">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l1 18h-4l-2-10-2 10H6z"/></svg>
+            <a href="collection.html">Thermal Leggings</a>
+          </li>
+          <li data-on="23">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21v-5l-3-4V7a1.5 1.5 0 0 1 3 0v3m0-5a1.5 1.5 0 0 1 3 0v5m0-6.5a1.5 1.5 0 0 1 3 0V10m0-3a1.5 1.5 0 0 1 3 0v8l-2 6z"/></svg>
+            <a href="collection.html">Touchscreen Knit Gloves</a>
+          </li>
+          <li data-on="0123">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16a7 7 0 0 1 14 0v1H5zM5 20h14M12 9V6"/><circle cx="12" cy="4.5" r="1.5"/></svg>
+            <a href="collection.html">Ribbed Wool Toque</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Why people choose Northhaven</h2>
+        <!-- 3 reasons -->
+        <ul class="three">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>
+            <h3>Honest warmth</h3>
+            <p>Each product page lists the temperature range it is made for, not a vague "extra warm".</p>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a2.5 2.5 0 1 0-2.5-2.5M12 8v2l9 6H3l9-6"/></svg>
+            <h3>Looks right at work</h3>
+            <p>Plain cuts and quiet colours that work in an office and on a night out.</p>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg>
+            <h3>Fair prices</h3>
+            <p>One price all year. We do not mark things up to mark them down.</p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Start with the essentials</h2>
+        <!-- products -->
+        <div class="grid">
+
+          <article class="card" data-c="jackets">
+            <img src="img/p16.jpg" alt="Grey puffer jacket on a store mannequin" width="600" height="800" loading="lazy">
+            <div>
+              <h3>Alpine Puffer</h3>
+              <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Rated to -20 &deg;C</span></p>
+              <p>Water-resistant shell, duck-down fill, hood. Sizes XS to XXL.</p>
+              <p class="price">$249</p>
+              <a class="link" href="join.html">Get early-access price for Alpine Puffer</a>
+            </div>
+          </article>
+
+          <article class="card" data-c="layers">
+            <img src="img/p14.jpg" alt="Person pulling a cream knit sweater over their head" width="600" height="800" loading="lazy">
+            <div>
+              <h3>Merino Crew Sweater</h3>
+              <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Warm to -5 &deg;C as a base layer</span></p>
+              <p>Soft merino blend that stays warm if it gets damp.</p>
+              <p class="price">$119</p>
+              <a class="link" href="join.html">Get early-access price for Merino Crew Sweater</a>
+            </div>
+          </article>
+
+          <article class="card" data-c="accessories">
+            <img src="img/p03.jpg" alt="Knit beanies in dark, pink and yellow laid flat" width="600" height="800" loading="lazy">
+            <div>
+              <h3>Ribbed Wool Toque</h3>
+              <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Covers ears and forehead</span></p>
+              <p>Double-layer knit, one size, six colours.</p>
+              <p class="price">$34</p>
+              <a class="link" href="join.html">Get early-access price for Ribbed Wool Toque</a>
+            </div>
+          </article>
+        </div>
+        <ul class="trust">
+          <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>Ratings come from real winter walks</li>
+          <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg>30-day returns on unworn items</li>
+          <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a2.5 2.5 0 1 0-2.5-2.5M12 8v2l9 6H3l9-6"/></svg>Materials listed on every product</li>
+        </ul>
+        <p><a class="link" href="collection.html">See the full collection</a></p>
+      </section>
+
+      <!-- banner at the bottom -->
+      <section class="band">
+        <div>
+          <h2>Get 10% off your first order</h2>
+          <p>Join the Winter Guide list. You get a one-page guide to dressing by temperature and a discount code. We email about twice a month.</p>
+        </div>
+        <a class="btn" href="join.html">Join the list</a>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="footer-cols">
+        <div>
+          <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+          <p>Warm for the whole walk. Winter clothing rated by temperature.</p>
+        </div>
+        <nav aria-label="Shop">
+          <h2 class="footer-heading">Shop</h2>
+          <ul>
+            <li>
+              <a href="collection.html">Collection</a>
+            </li>
+            <li>
+              <a href="guide.html">Winter Guide</a>
+            </li>
+          </ul>
+        </nav>
+        <nav aria-label="Company">
+          <h2 class="footer-heading">Company</h2>
+          <ul>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+            <li>
+              <a href="guide.html#faq">Returns and sizing</a>
+            </li>
+            <li>
+              <a href="join.html#privacy">Privacy</a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer-heading">Stay in touch</h2>
+          <p>Get the Winter Guide and 10% off.</p>
+          <a class="btn small" href="join.html">Join the list</a>
+          <p class="footer-mail"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg> hello@northhaven.example</p>
+        </div>
+      </div>
+      <p class="fine-print">&copy; 2026 Northhaven. A fictional brand made for a university course. Photos from Unsplash. This prototype does not process orders or emails.</p>
+    </footer>
+
+    <!-- js -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Collection | Northhaven</title>
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Ten winter pieces from Northhaven, each rated by temperature, with materials and fit notes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- skip link (for accessibility) -->
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- navbar -->
+    <header class="site-header">
+      <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+      <nav aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="collection.html" aria-current="page">Collection</a>
+        <a href="guide.html">Winter Guide</a>
+        <a href="about.html">About</a>
+        <a class="btn small" href="join.html">Join the list</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>Collection</h1>
+      <p class="lead">Ten pieces that layer together. Ratings assume a brisk walk, not standing still.</p>
+      <ul class="trust">
+        <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>Ratings come from real winter walks</li>
+        <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg>30-day returns on unworn items</li>
+        <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a2.5 2.5 0 1 0-2.5-2.5M12 8v2l9 6H3l9-6"/></svg>Materials listed on every product</li>
+      </ul>
+      <!-- filter buttons -->
+      <div class="chips" role="group" aria-label="Filter products">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="jackets" aria-pressed="false">Jackets</button>
+        <button type="button" data-f="layers" aria-pressed="false">Layers</button>
+        <button type="button" data-f="accessories" aria-pressed="false">Accessories</button>
+      </div>
+      <p id="filterCount" class="note" aria-live="polite">Showing 10 of 10 products</p>
+      <!-- products -->
+      <div class="grid" id="cardGrid">
+
+        <!-- Alpine Puffer -->
+        <article class="card" data-c="jackets">
+          <img src="img/p16.jpg" alt="Grey puffer jacket on a store mannequin" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Alpine Puffer</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Rated to -20 &deg;C</span></p>
+            <p>Water-resistant shell, duck-down fill, hood. Sizes XS to XXL.</p>
+            <p class="price">$249</p>
+            <a class="link" href="join.html">Get early-access price for Alpine Puffer</a>
+          </div>
+        </article>
+
+        <!-- Commuter Down Coat -->
+        <article class="card" data-c="jackets">
+          <img src="img/p01.jpg" alt="White puffer jacket hanging in a shop" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Commuter Down Coat</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Rated to -15 &deg;C</span></p>
+            <p>Hip-length, wind-blocking, two zip pockets. Fits over a work jacket.</p>
+            <p class="price">$219</p>
+            <a class="link" href="join.html">Get early-access price for Commuter Down Coat</a>
+          </div>
+        </article>
+
+        <!-- Merino Crew Sweater -->
+        <article class="card" data-c="layers">
+          <img src="img/p14.jpg" alt="Person pulling a cream knit sweater over their head" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Merino Crew Sweater</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Warm to -5 &deg;C as a base layer</span></p>
+            <p>Soft merino blend that stays warm if it gets damp.</p>
+            <p class="price">$119</p>
+            <a class="link" href="join.html">Get early-access price for Merino Crew Sweater</a>
+          </div>
+        </article>
+
+        <!-- Thermal Leggings -->
+        <article class="card" data-c="layers">
+          <img src="img/p12.jpg" alt="Person wearing brown thermal leggings and white sneakers" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Thermal Leggings</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Adds about 5 &deg;C of warmth</span></p>
+            <p>Brushed lining, flat seams. Wear under work pants or alone.</p>
+            <p class="price">$69</p>
+            <a class="link" href="join.html">Get early-access price for Thermal Leggings</a>
+          </div>
+        </article>
+
+        <!-- Ribbed Wool Toque -->
+        <article class="card" data-c="accessories">
+          <img src="img/p03.jpg" alt="Knit beanies in dark, pink and yellow laid flat" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Ribbed Wool Toque</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Covers ears and forehead</span></p>
+            <p>Double-layer knit, one size, six colours.</p>
+            <p class="price">$34</p>
+            <a class="link" href="join.html">Get early-access price for Ribbed Wool Toque</a>
+          </div>
+        </article>
+
+        <!-- Touchscreen Knit Gloves -->
+        <article class="card" data-c="accessories">
+          <img src="img/p04.jpg" alt="Pair of grey knit gloves on a wooden table" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Touchscreen Knit Gloves</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Warm to -10 &deg;C</span></p>
+            <p>Use your phone without taking them off. Sizes S to L.</p>
+            <p class="price">$39</p>
+            <a class="link" href="join.html">Get early-access price for Touchscreen Knit Gloves</a>
+          </div>
+        </article>
+
+        <!-- Wool Overcoat -->
+        <article class="card" data-c="jackets">
+          <img src="img/p06.jpg" alt="Wool coats hanging on a clothing rail" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Wool Overcoat</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Warm to -10 &deg;C</span></p>
+            <p>Long wool-blend coat with a warm lining. Sits well over a suit.</p>
+            <p class="price">$289</p>
+            <a class="link" href="join.html">Get early-access price for Wool Overcoat</a>
+          </div>
+        </article>
+
+        <!-- Cable-Knit Sweater -->
+        <article class="card" data-c="layers">
+          <img src="img/p17.jpg" alt="Person in a burgundy cable-knit sweater" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Cable-Knit Sweater</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Warm to -8 &deg;C as a mid layer</span></p>
+            <p>Chunky burgundy knit, roomy enough to wear over a base layer.</p>
+            <p class="price">$129</p>
+            <a class="link" href="join.html">Get early-access price for Cable-Knit Sweater</a>
+          </div>
+        </article>
+
+        <!-- Merino Base Tee -->
+        <article class="card" data-c="layers">
+          <img src="img/p13.jpg" alt="Folded pink, white and black t-shirts" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Merino Base Tee</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Base layer, warm to 0 &deg;C alone</span></p>
+            <p>Thin merino blend that moves sweat away. Wear under any sweater.</p>
+            <p class="price">$49</p>
+            <a class="link" href="join.html">Get early-access price for Merino Base Tee</a>
+          </div>
+        </article>
+
+        <!-- Leather Winter Gloves -->
+        <article class="card" data-c="accessories">
+          <img src="img/p02.jpg" alt="Black leather gloves held up against a snowy background" width="600" height="800" loading="lazy">
+          <div>
+            <h3>Leather Winter Gloves</h3>
+            <p class="temp"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Warm to -12 &deg;C</span></p>
+            <p>Lined leather gloves that soften after a week of wear.</p>
+            <p class="price">$79</p>
+            <a class="link" href="join.html">Get early-access price for Leather Winter Gloves</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- banner at the bottom -->
+      <section class="band">
+        <div>
+          <h2>Not sure what size or layer you need?</h2>
+          <p>Read the Winter Guide, or join the list for the guide and 10% off.</p>
+        </div>
+        <a class="btn" href="guide.html">Open the Winter Guide</a>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="footer-cols">
+        <div>
+          <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+          <p>Warm for the whole walk. Winter clothing rated by temperature.</p>
+        </div>
+        <nav aria-label="Shop">
+          <h2 class="footer-heading">Shop</h2>
+          <ul>
+            <li>
+              <a href="collection.html">Collection</a>
+            </li>
+            <li>
+              <a href="guide.html">Winter Guide</a>
+            </li>
+          </ul>
+        </nav>
+        <nav aria-label="Company">
+          <h2 class="footer-heading">Company</h2>
+          <ul>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+            <li>
+              <a href="guide.html#faq">Returns and sizing</a>
+            </li>
+            <li>
+              <a href="join.html#privacy">Privacy</a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer-heading">Stay in touch</h2>
+          <p>Get the Winter Guide and 10% off.</p>
+          <a class="btn small" href="join.html">Join the list</a>
+          <p class="footer-mail"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg> hello@northhaven.example</p>
+        </div>
+      </div>
+      <p class="fine-print">&copy; 2026 Northhaven. A fictional brand made for a university course. Photos from Unsplash. This prototype does not process orders or emails.</p>
+    </footer>
+
+    <!-- js -->
+    <script src="script.js"></script>
+  </body>
+</html>

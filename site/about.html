@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Northhaven</title>
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Why Northhaven exists, how the clothing is made, and what you can expect if something is not right.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- skip link (for accessibility) -->
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- navbar -->
+    <header class="site-header">
+      <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+      <nav aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="guide.html">Winter Guide</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a class="btn small" href="join.html">Join the list</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1>About Northhaven</h1>
+      <p class="lead">We make winter clothing for people who walk to the train in January.</p>
+
+      <section class="split">
+        <img src="img/p10.jpg" alt="Hands guiding fabric through a sewing machine" width="900" height="600" loading="lazy">
+        <div>
+          <h2>Made carefully, in small runs</h2>
+          <p>Our founder started Northhaven after a coat labelled "arctic" failed on a -18 &deg;C commute. We test every piece on real walks before it gets a temperature rating.</p>
+          <p>Small runs mean we fix problems before the next batch, and we can explain who made what.</p>
+        </div>
+      </section>
+
+      <section class="split flip">
+        <img src="img/p11.jpg" alt="Close-up of chunky grey wool knit" width="900" height="1200" loading="lazy">
+        <div>
+          <h2>What you can count on</h2>
+          <ul class="checks">
+            <li>Materials listed on every product</li>
+            <li>30-day returns on unworn items</li>
+            <li>Real customer reviews, never edited</li>
+            <li>A reply from a person within two working days</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- reviews -->
+      <section id="reviews" class="reviews-section">
+        <div>
+          <h2>What customers say</h2>
+          <ul id="reviewList" class="review-list" aria-live="polite">
+            <li class="empty">No reviews yet. Be the first to share one.</li>
+          </ul>
+        </div>
+        <!-- review form, doesnt save anything because there is no backend -->
+        <form id="reviewForm" class="card-form" novalidate>
+          <h2>Share a review or feedback</h2>
+          <label for="reviewName">Your first name (optional)</label>
+          <input id="reviewName" type="text" maxlength="40" autocomplete="given-name">
+          <label for="reviewProduct">What is it about?</label>
+          <select id="reviewProduct">
+            <option>General feedback</option>
+            <option>Alpine Puffer</option>
+            <option>Commuter Down Coat</option>
+            <option>Merino Crew Sweater</option>
+            <option>Thermal Leggings</option>
+            <option>Ribbed Wool Toque</option>
+            <option>Touchscreen Knit Gloves</option>
+            <option>Wool Overcoat</option>
+            <option>Cable-Knit Sweater</option>
+            <option>Merino Base Tee</option>
+            <option>Leather Winter Gloves</option>
+          </select>
+          <!-- stars are radio buttons, css makes them look like stars -->
+          <fieldset class="star-box">
+            <legend>Your rating</legend>
+            <div class="star-row">
+              <input type="radio" name="rate" id="star5" value="5">
+              <label for="star5"><span class="sr-only">5 stars</span>&#9733;</label>
+              <input type="radio" name="rate" id="star4" value="4">
+              <label for="star4"><span class="sr-only">4 stars</span>&#9733;</label>
+              <input type="radio" name="rate" id="star3" value="3">
+              <label for="star3"><span class="sr-only">3 stars</span>&#9733;</label>
+              <input type="radio" name="rate" id="star2" value="2">
+              <label for="star2"><span class="sr-only">2 stars</span>&#9733;</label>
+              <input type="radio" name="rate" id="star1" value="1">
+              <label for="star1"><span class="sr-only">1 star</span>&#9733;</label>
+            </div>
+          </fieldset>
+          <label for="reviewText">Your review or feedback</label>
+          <textarea id="reviewText" rows="5" maxlength="500" required></textarea>
+          <label class="checkbox-row"><input id="reviewConsent" type="checkbox" required><span>I agree that my first name and review can appear on this website.</span></label>
+          <p id="reviewError" class="error-msg" role="alert"></p>
+          <button class="btn" type="submit">Send review</button>
+          <p id="reviewOk" class="okmsg" role="status" hidden></p>
+        </form>
+      </section>
+
+      <!-- banner at the bottom -->
+      <section class="band">
+        <div>
+          <h2>Ready to find your layers?</h2>
+          <p>See the collection, or join the list for the Winter Guide and 10% off.</p>
+        </div>
+        <a class="btn" href="collection.html">See the collection</a>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="footer-cols">
+        <div>
+          <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="53" height="42"><span>Northhaven</span></a>
+          <p>Warm for the whole walk. Winter clothing rated by temperature.</p>
+        </div>
+        <nav aria-label="Shop">
+          <h2 class="footer-heading">Shop</h2>
+          <ul>
+            <li>
+              <a href="collection.html">Collection</a>
+            </li>
+            <li>
+              <a href="guide.html">Winter Guide</a>
+            </li>
+          </ul>
+        </nav>
+        <nav aria-label="Company">
+          <h2 class="footer-heading">Company</h2>
+          <ul>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+            <li>
+              <a href="guide.html#faq">Returns and sizing</a>
+            </li>
+            <li>
+              <a href="join.html#privacy">Privacy</a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <h2 class="footer-heading">Stay in touch</h2>
+          <p>Get the Winter Guide and 10% off.</p>
+          <a class="btn small" href="join.html">Join the list</a>
+          <p class="footer-mail"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg> hello@northhaven.example</p>
+        </div>
+      </div>
+      <p class="fine-print">&copy; 2026 Northhaven. A fictional brand made for a university course. Photos from Unsplash. This prototype does not process orders or emails.</p>
+    </footer>
+
+    <!-- js -->
+    <script src="script.js"></script>
+  </body>
+</html>
