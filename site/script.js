@@ -187,8 +187,48 @@ if (snowCanvas && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
 }
 
 
+// ===== form service =====
+// both forms send their answers to a form service (formspree) which emails them to the site owner
+// to set it up: make a free form on formspree.io and paste its address below
+const FORM_URL = "https://formspree.io/f/mnpjoaqa";
+
+// sends the answers to the form service
+// onDone runs if it worked, onFail runs if it did not
+function sendForm(answers, onDone, onFail) {
+  // stop here if the address has not been added yet
+  if (FORM_URL.indexOf("http") !== 0) {
+    console.log("add your form address to FORM_URL in script.js");
+    onFail();
+    return;
+  }
+
+  // put each answer into the form data
+  let formData = new FormData();
+  for (let key in answers) {
+    formData.append(key, answers[key]);
+  }
+
+  fetch(FORM_URL, {
+    method: "POST",
+    body: formData,
+    headers: { Accept: "application/json" }
+  })
+    .then(function (response) {
+      if (response.ok) {
+        onDone();
+      } else {
+        onFail();
+      }
+    })
+    .catch(function () {
+      // no internet or the service is down
+      onFail();
+    });
+}
+
+
 // ===== join form =====
-// prototype only so it doesnt really send anything
+// checks the email, then sends it to the form service
 let joinForm = document.getElementById("joinForm");
 
 if (joinForm) {
@@ -222,19 +262,30 @@ if (joinForm) {
       return;
     }
 
-    // all good, hide the form and show the thank you box
+    // all good, send the email to the form service
     submitButton.disabled = true;
-    document.getElementById("doneMessage").textContent =
-      "Prototype: this preview does not store sign-ups or send emails.";
-    joinForm.hidden = true;
-    document.getElementById("doneBox").hidden = false;
-    document.getElementById("doneBox").focus();
+    sendForm(
+      { form: "Winter Guide sign-up", email: emailInput.value.trim(), consent: "yes" },
+      function () {
+        // it worked, hide the form and show the thank you box
+        document.getElementById("doneMessage").textContent =
+          "Your sign-up was received. This prototype does not send automatic emails, so you can read the Winter Guide now.";
+        joinForm.hidden = true;
+        document.getElementById("doneBox").hidden = false;
+        document.getElementById("doneBox").focus();
+      },
+      function () {
+        // it did not work, let them try again
+        emailError.textContent = "Sorry, we could not send your sign-up. Please check your connection and try again.";
+        submitButton.disabled = false;
+      }
+    );
   });
 }
 
 
 // ===== review form (about page) =====
-// same as above, doesnt save the review
+// same as above, the review is sent to the form service
 let reviewForm = document.getElementById("reviewForm");
 
 if (reviewForm) {
@@ -269,10 +320,34 @@ if (reviewForm) {
       return;
     }
 
+    // all good, send the review to the form service
     let thanksMessage = document.getElementById("reviewOk");
-    thanksMessage.textContent = "Thank you. This preview cannot save reviews, so yours was not stored.";
-    thanksMessage.style.color = "#8A4B00";
-    thanksMessage.hidden = false;
+    let sendButton = reviewForm.querySelector("button");
+    thanksMessage.hidden = true;
+    sendButton.disabled = true;
+
+    sendForm(
+      {
+        form: "Review or feedback",
+        name: document.getElementById("reviewName").value.trim(),
+        topic: document.getElementById("reviewProduct").value,
+        rating: chosenStar.value,
+        review: reviewText.value.trim(),
+        can_be_shown: "yes"
+      },
+      function () {
+        // it worked, show the thank you and clear the form
+        thanksMessage.textContent = "Thank you. We received your review. Reviews are checked before they are published.";
+        thanksMessage.hidden = false;
+        reviewForm.reset();
+        sendButton.disabled = false;
+      },
+      function () {
+        // it did not work, let them try again
+        reviewError.textContent = "Sorry, we could not send your review. Please check your connection and try again.";
+        sendButton.disabled = false;
+      }
+    );
   });
 }
 
